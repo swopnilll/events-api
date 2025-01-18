@@ -41,4 +41,20 @@ class Event extends Model
     {
         return $this->hasMany(EventParticipation::class);
     }
+
+    /**
+     * Relationship: An event can have many tickets.
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    /**
+     * Relationship: An event can have many transactions.
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

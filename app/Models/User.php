@@ -55,4 +55,20 @@ class User extends Authenticatable
     {
         return $this->hasMany(EventParticipation::class);
     }
+
+    /**
+     * Relationship: A user can have many tickets.
+     */
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    /**
+     * Relationship: A user can have many transactions.
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }

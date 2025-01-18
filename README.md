@@ -100,3 +100,21 @@ sail artisan make:migration add_created_by_to_events_table --table=events
 sail artisan migrate
 
 sail artisan make:model EventParticipation -m
+
+sail artisan migrate
+
+sail artisan make:model Ticket -m
+
+sail artisan migrate
+
+sail artisan make:migration add_ticket_id_to_event_participations_table
+
+sail artisan migrate
+
+sail artisan make:model Transaction -m
+
+sail artisan migrate
+
+sail artisan make:model EventImage -m
+
+sail artisan migrate

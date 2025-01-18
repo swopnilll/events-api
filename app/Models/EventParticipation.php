@@ -37,4 +37,12 @@ class EventParticipation extends Model
     {
         return $this->belongsTo(Role::class);
     }
+
+    /**
+     * Relationship: An event participation may be associated with one ticket.
+     */
+    public function ticket()
+    {
+        return $this->belongsTo(Ticket::class);
+    }
 }
