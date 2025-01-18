@@ -49,9 +49,48 @@ Once you run this command, you can open your browser and go to `http://localhost
 
 ---
 
-### Summary:
+### **Running Database Migrations**
 
-1.  **`curl -s "https://laravel.build/events-api" | bash`**: Fetches a script from the internet that sets up a Laravel project with Docker.
-2.  **`./vendor/bin/sail up`**: Starts up all the necessary Docker containers (like MySQL, Redis, etc.) to make your Laravel application work.
+Once your Docker containers are up and running, you will likely need to **migrate the database**. Laravel uses **migrations** to manage your database schema in a version-controlled manner. Migrations are a way of updating and modifying your database structure over time, allowing you to share the database changes with your team or other developers.
 
-With Docker, you don't need to install MySQL, Redis, or other services on your machine. Docker handles all the dependencies inside containers, which makes your development environment consistent and easy to set up.
+To run the migrations, use the following command:
+
+bash
+
+CopyEdit
+
+`./vendor/bin/sail artisan migrate`
+
+Let's break this down:
+
+-   **`./vendor/bin/sail`**: As mentioned earlier, Sail is the Laravel tool to interact with Docker containers.
+-   **`artisan`**: Artisan is Laravel's command-line interface (CLI) that provides many helpful commands for developing applications. `artisan migrate` is used to run the database migrations.
+-   **`migrate`**: This is the specific Artisan command that tells Laravel to run the migrations. Migrations could be to create new tables, alter existing ones, or even add some initial data to the database.
+
+When you run `./vendor/bin/sail artisan migrate`, this will:
+
+-   Connect to the MySQL (or other database) container that was started by Docker.
+-   Look for any migration files in your Laravel project (these are usually stored in the `database/migrations/` directory).
+-   Execute those migration files to update the database schema, for example, creating tables or adding columns.
+
+In this case, since you were experiencing the **sessions table not found** error earlier, running `artisan migrate` would create the necessary `sessions` table in your database if it hasn't been created yet.
+
+### To summarize, here's the process:
+
+1.  **Start Docker containers** with the command `./vendor/bin/sail up`. This starts all necessary services like web server and database in Docker containers.
+2.  **Run database migrations** with the command `./vendor/bin/sail artisan migrate`. This applies any database schema changes that are required (like creating missing tables such as `sessions`).
+3.  **Access the application** via your browser at `http://localhost`. Your Laravel app should now be running and accessible.v
+
+### ERD: Models and Migrations
+
+sail artisan make:model Roles -m
+
+sail artisan migrate
+
+sail artisan make:migration add_role_id_to_user_table --table=user
+
+sail artisan migrate
+
+sail artisan make:model Event -m
+
+sail artisan migrate
