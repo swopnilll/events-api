@@ -118,3 +118,5 @@ sail artisan migrate
 sail artisan make:model EventImage -m
 
 sail artisan migrate
+
+sail artisan install:api
