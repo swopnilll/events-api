@@ -94,3 +94,9 @@ sail artisan migrate
 sail artisan make:model Event -m
 
 sail artisan migrate
+
+sail artisan make:migration add_created_by_to_events_table --table=events
+
+sail artisan migrate
+
+sail artisan make:model EventParticipation -m

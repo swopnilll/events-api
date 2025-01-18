@@ -18,4 +18,9 @@ class Role extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function eventParticipations()
+    {
+        return $this->hasMany(EventParticipation::class);
+    }
 }
