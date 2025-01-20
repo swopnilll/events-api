@@ -140,3 +140,8 @@ sail artisan make:request Api/LoginRequest
 sail artisan make:controller Api/EventController --api
 
 sail artisan make:request Api/EventRequest
+
+for executing mysql bash
+./vendor/bin/sail exec mysql bash
+
+mysql -u sail -p

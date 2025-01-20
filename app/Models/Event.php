@@ -22,6 +22,8 @@ class Event extends Model
         'is_paid',
         'max_capacity',
         'current_capacity',
+        'created_by',
+        'price',
     ];
 
     /**
