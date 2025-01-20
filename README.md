@@ -120,3 +120,19 @@ sail artisan make:model EventImage -m
 sail artisan migrate
 
 sail artisan install:api
+
+Route::apiResource('posts', PostController::Class);
+
+All the routes list will be created for posts
+
+api/posts GET
+api/posts POST
+API/posts/{post} GET
+API/posts/{post} PUT AND PATCH
+API/posts/{post} DELETE
+
+sail artisan make:controller Api/AuthController
+
+sail artisan make:request Api/RegisterRequest
+
+sail artisan make:request Api/LoginRequest
