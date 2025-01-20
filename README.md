@@ -136,3 +136,7 @@ sail artisan make:controller Api/AuthController
 sail artisan make:request Api/RegisterRequest
 
 sail artisan make:request Api/LoginRequest
+
+sail artisan make:controller Api/EventController --api
+
+sail artisan make:request Api/EventRequest
