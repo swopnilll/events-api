@@ -140,3 +140,7 @@ sail artisan make:request Api/LoginRequest
 sail artisan make:controller Api/EventController --api
 
 sail artisan make:request Api/EventRequest
+
+docker build --platform linux/amd64 -t swopnill/events-api-koi:latest .
+
+docker push swopnill/events-api-koi:latest
