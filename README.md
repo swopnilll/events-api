@@ -144,3 +144,7 @@ sail artisan make:request Api/EventRequest
 docker build --platform linux/amd64 -t swopnill/events-api-koi:latest .
 
 docker push swopnill/events-api-koi:latest
+for executing mysql bash
+./vendor/bin/sail exec mysql bash
+
+mysql -u sail -p
