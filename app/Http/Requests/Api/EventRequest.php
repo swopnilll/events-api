@@ -34,17 +34,16 @@ class EventRequest extends FormRequest
             'current_capacity' => 'nullable|integer|min:0',
             'max_capacity' => 'nullable|integer|min:1',
             'price' => 'nullable|numeric|min:0',
-         
-            
+            'image' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048',
         ];
 
-             // Add specific rules for the update method
-             if ($this->isMethod('patch') || $this->isMethod('put')) {
-                $rules = array_map(function ($rule) {
-                    return str_replace('required', 'sometimes|required', $rule);
-                }, $rules);
-            }
-    
-            return $rules;
+        // Add specific rules for the update method
+        if ($this->isMethod('patch') || $this->isMethod('put')) {
+            $rules = array_map(function ($rule) {
+                return str_replace('required', 'sometimes|required', $rule);
+            }, $rules);
+        }
+
+        return $rules;
     }
 }

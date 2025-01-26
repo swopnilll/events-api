@@ -59,4 +59,10 @@ class Event extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    // An event has many images (EventImage model)
+    public function eventImages()
+    {
+        return $this->hasMany(EventImage::class);
+    }
 }

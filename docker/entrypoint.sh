@@ -50,14 +50,15 @@ until check_db_connection; do
     fi
 done
 
-# Rest of your script...
-
-
 log_message "Successfully connected to the database."
 
 # Run migrations
 log_message "Running migrations..."
 php artisan migrate --force
+
+# Run seeders
+log_message "Running seeders..."
+php artisan db:seed --force
 
 # Clear and cache config
 log_message "Clearing and caching config..."
